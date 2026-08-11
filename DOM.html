@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tienda</title>
+</head>
+<body>
+
+    <input type="text" id="elemento" placeholder="Elemento">
+    <input type="number" id="cantidad" placeholder="Cantidad">
+    <input type="number" id="precio" placeholder="Precio">
+    <button onclick="agregarItem()">Agregar</button>
+
+    <ul id="lista"></ul>
+
+    <p>Total: <span id="total">0</span></p>
+
+    <script>
+        let total = 0;
+
+        function agregarItem() {
+            const elemento = document.getElementById("elemento").value;
+            const cantidad = parseFloat(document.getElementById("cantidad").value);
+            const precio = parseFloat(document.getElementById("precio").value);
+
+            const subtotal = cantidad * precio;
+            total += subtotal;
+
+            const li = document.createElement("li");
+            li.textContent = `${elemento}   ,  Cantidad: ${cantidad}   ,   Precio: ${precio}`;
+            document.getElementById("lista").appendChild(li);
+
+            document.getElementById("total").textContent = total;
+
+            document.getElementById("elemento").value = "";
+            document.getElementById("cantidad").value = "";
+            document.getElementById("precio").value = "";
+        }
+    </script>
+
+</body>
+</html>
