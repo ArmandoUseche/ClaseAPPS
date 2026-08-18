@@ -1,0 +1,34 @@
+<h1>{{ titulo }}</h1>
+
+<label>Número 1</label><br>
+<input type="number" [(ngModel)]="numero1"><br><br>
+
+<label>Número 2</label><br>
+<input type="number" [(ngModel)]="numero2"><br><br>
+
+<label>Operación</label><br>
+<select [(ngModel)]="operacionSeleccionada">
+  <option value="sumar">Suma</option>
+  <option value="restar">Resta</option>
+  <option value="multiplicar">Multiplicación</option>
+  <option value="dividir">División</option>
+</select><br><br>
+
+<button (click)="calcular()">Calcular</button><br><br>
+
+<div *ngIf="resultado !== null">
+  <label>Resultado</label><br>
+  <p>{{ resultado }}</p>
+</div>
+
+<div *ngIf="error">
+  {{ error }}
+</div>
+
+<div *ngIf="historial.length > 0">
+  <label>Históricos</label><br>
+  <div *ngFor="let item of historial">
+    {{ item.operacion }} = {{ item.resultado }}
+  </div><br>
+  <button (click)="limpiarHistorial()">Limpiar historial</button>
+</div>
