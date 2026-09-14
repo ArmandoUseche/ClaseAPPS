@@ -1,0 +1,7 @@
+{
+  "name": "IonicYcalculadora",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular-standalone"
+}
