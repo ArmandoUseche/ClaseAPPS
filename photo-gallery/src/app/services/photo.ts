@@ -8,7 +8,6 @@ export class PhotoService {
   public photos = signal<UserPhoto[]>([]);
 
   public async addNewToGallery() {
-    // Take a photo
     const capturedPhoto = await Camera.getPhoto({
       resultType: CameraResultType.Uri,
       source: CameraSource.Camera,
